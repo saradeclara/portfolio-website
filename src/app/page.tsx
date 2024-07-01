@@ -7,7 +7,7 @@ import DevBlog from "../components/DevBlog";
 import Contact from "../components/Contact";
 import Section from "../components/Section";
 
-export const sections: { title: string; body: ReactNode }[] = [
+const sections: { title: string; body: ReactNode }[] = [
 	{
 		title: "projects",
 		body: <ProjectGrid />,
@@ -22,7 +22,7 @@ export const sections: { title: string; body: ReactNode }[] = [
 	},
 ];
 
-export default function Home() {
+function Home() {
 	return (
 		<Box
 			sx={{
@@ -44,3 +44,5 @@ export default function Home() {
 		</Box>
 	);
 }
+
+export default Home;
