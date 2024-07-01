@@ -1,5 +1,7 @@
 import { Heading, Box } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
+import capitaliseEveryChar from "../helpers/capitaliseEveryChar";
+import { centeredFlex } from "../app/globalClasses";
 
 const Section = ({
 	index,
@@ -12,7 +14,9 @@ const Section = ({
 }) => {
 	return (
 		<Box id={index.toString()} key={index}>
-			<Heading as="h2">{title}</Heading>
+			<Heading sx={{ ...centeredFlex, padding: "20px 0px" }} as="h2">
+				{capitaliseEveryChar(title)}
+			</Heading>
 			<Box>{body}</Box>
 		</Box>
 	);

@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { centeredFlex } from "./globalClasses";
 import Jumbotron from "@/components/Jumbotron";
 import ProjectGrid from "@/components/ProjectGrid";
@@ -7,7 +7,7 @@ import DevBlog from "../components/DevBlog";
 import Contact from "../components/Contact";
 import Section from "../components/Section";
 
-export const sections: { title: string; body: ReactNode | null }[] = [
+export const sections: { title: string; body: ReactNode }[] = [
 	{
 		title: "projects",
 		body: <ProjectGrid />,
