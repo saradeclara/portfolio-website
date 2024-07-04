@@ -11,36 +11,39 @@ import {
 	Text,
 	Box,
 } from "@chakra-ui/react";
-import Link from "next/link";
 import React from "react";
+import "../../styles/loading.css";
 
-const SingleLoading = ({}: {}) => {
+const SingleLoading = () => {
 	return (
 		<Card marginRight={5} maxW="sm">
 			<CardBody>
 				<Box
+					className="pulse"
 					sx={{
 						width: "300px",
 						height: "250px",
-						background: "lightgray",
+						// background: "lightgray",
 						borderRadius: "10px",
 					}}
 				></Box>
 				<Box paddingTop={5}>
 					<Box
+						className="pulse"
 						sx={{
 							width: "300px",
 							height: "25px",
-							background: "lightgray",
+							// background: "lightgray",
 							borderRadius: "10px",
 						}}
 					></Box>
 					<Box
+						className="pulse"
 						sx={{
 							marginTop: "5px",
 							width: "300px",
 							height: "25px",
-							background: "lightgray",
+							// background: "lightgray",
 							borderRadius: "10px",
 						}}
 					></Box>

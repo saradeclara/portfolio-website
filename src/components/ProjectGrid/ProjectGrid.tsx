@@ -1,24 +1,11 @@
 "use client";
 import useFetchData from "@/app/hooks/useFetchData";
-import {
-	Box,
-	Button,
-	Card,
-	CardBody,
-	CardFooter,
-	Divider,
-	Heading,
-	Image,
-	Link,
-	Stack,
-	Text,
-} from "@chakra-ui/react";
-import axios from "axios";
-import React, { ReactElement, useEffect, useState } from "react";
+import { Box } from "@chakra-ui/react";
 import LoadingGrid from "./LoadingGrid";
 import SingleProject from "./SingleProject";
 import { GithubProject } from "@/types/ProjectGrid";
 import { allowedRepos } from "@/src/app/data";
+import { centeredFlex } from "@/src/app/globalClasses";
 
 const ProjectGrid = () => {
 	const { data, isLoading, error } = useFetchData<GithubProject[]>(
@@ -43,7 +30,7 @@ const ProjectGrid = () => {
 		: null;
 
 	return (
-		<Box sx={{ display: "flex" }}>
+		<Box sx={{ ...centeredFlex }}>
 			{allowedProjects
 				? allowedProjects.map((singleProject, index) => {
 						return (

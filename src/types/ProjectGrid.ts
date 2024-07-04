@@ -7,6 +7,9 @@ type GithubProject = {
 type AllowedRepo = {
 	name: string;
 	description: string;
+	devDiaryIndex?: number;
+	demoLink?: string;
+	thumbnail?: string;
 };
 
 export type { GithubProject, AllowedRepo };

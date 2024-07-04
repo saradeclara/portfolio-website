@@ -9,8 +9,8 @@ import {
 	Button,
 	Image,
 	Text,
+	Link,
 } from "@chakra-ui/react";
-import Link from "next/link";
 import React from "react";
 
 const SingleProject = ({
@@ -20,47 +20,65 @@ const SingleProject = ({
 	singleProject: GithubProject;
 	allowedRepos: AllowedRepo[];
 }) => {
+	const currentAllowedRepoInfo = allowedRepos.find(
+		(singleRepo) => singleRepo.name === singleProject.name
+	);
+
 	return (
-		<Card key={singleProject.node_id} marginRight={5} maxW="sm">
+		<Card
+			color="rgba(255,255,255,.7)"
+			key={singleProject.node_id}
+			marginRight={5}
+			background="rgb(30, 30, 30)"
+			opacity="0.77"
+			height="650px"
+			maxW="sm"
+		>
 			<CardBody>
 				<Image
-					src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+					src={currentAllowedRepoInfo?.thumbnail}
 					alt="Green double couch with wooden legs"
 					borderRadius="lg"
 				/>
 				<Stack mt="6" spacing="3">
-					<Heading size="md">{singleProject.name}</Heading>
-					<Text fontSize="sm">
-						{
-							allowedRepos.find(
-								(singleRepo) => singleRepo.name === singleProject.name
-							)?.description
-						}
-					</Text>
+					<Heading size="md">
+						<Link
+							_hover={{ textDecoration: "underline" }}
+							href={singleProject.html_url}
+						>
+							{singleProject.name}
+						</Link>
+					</Heading>
+					<Text>{currentAllowedRepoInfo?.description}</Text>
 				</Stack>
 			</CardBody>
 			<Divider />
 			<CardFooter
 				justify="space-between"
 				flexWrap="wrap"
-				// sx={{
-				// 	"& > button": {
-				// 		minW: "136px",
-				// 	},
-				// }}
+				height="120px"
+				sx={{
+					"& > button": {
+						minW: "136px",
+					},
+				}}
 			>
-				<Link href={singleProject.html_url}>
-					<Button flex="1" variant="ghost">
-						Repo Link
+				<Button colorScheme="teal" flex="1" variant="ghost">
+					<Link href={singleProject.html_url}>Repo Link</Link>
+				</Button>
+				{currentAllowedRepoInfo?.demoLink ? (
+					<Button colorScheme="teal" flex="1" variant="ghost">
+						<Link href={currentAllowedRepoInfo.demoLink}>Demo Link</Link>
 					</Button>
-				</Link>
+				) : null}
 
-				<Button flex="1" variant="ghost">
-					Demo Link
-				</Button>
-				<Button flex="1" variant="ghost">
-					Dev Diary
-				</Button>
+				{currentAllowedRepoInfo?.devDiaryIndex ? (
+					<Button colorScheme="teal" flex="1" variant="ghost">
+						<Link href={`/posts/${currentAllowedRepoInfo.devDiaryIndex}`}>
+							Dev Diary
+						</Link>
+					</Button>
+				) : null}
 			</CardFooter>
 		</Card>
 	);
