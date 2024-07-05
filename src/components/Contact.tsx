@@ -44,7 +44,10 @@ const Contact = () => {
 				</ListItem>
 				<ListItem>
 					<Box sx={{ ...centeredFlex, padding: "10px 0px" }}>
-						<Link href="https://www.linkedin.com/in/saradeclara/">
+						<Link
+							target="_blank"
+							href="https://www.linkedin.com/in/saradeclara/"
+						>
 							<Button colorScheme="blue">
 								<FaLinkedin />
 								<Text
@@ -60,7 +63,7 @@ const Contact = () => {
 				</ListItem>
 				<ListItem>
 					<Box sx={{ ...centeredFlex, padding: "10px 0px" }}>
-						<Link href="https://github.com/saradeclara">
+						<Link target="_blank" href="https://github.com/saradeclara">
 							<Button _hover={{ background: "darkgray" }} colorScheme="gray">
 								<FaGithub />
 								<Text
