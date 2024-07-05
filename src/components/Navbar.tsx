@@ -1,7 +1,8 @@
 "use client";
 import { Tabs, TabList, Tab, Link, Box } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import useSmoothScroll from "../app/hooks/useSmoothScroll";
+import { SectionContext } from "../app/page";
 
 const navbarMargins = {
 	marginTop: 5,
@@ -29,7 +30,9 @@ const navbarItems: { title: string; sectionId: string }[] = [
 
 const Navbar = () => {
 	const scrollToSection = useSmoothScroll();
+	const { currentSection, setCurrentSection } = useContext(SectionContext);
 
+	// console.log({ currentSection });
 	return (
 		<Box
 			sx={{
@@ -40,12 +43,18 @@ const Navbar = () => {
 				paddingBottom: "20px",
 			}}
 		>
-			<Tabs align="end" variant="soft-rounded" colorScheme="gray">
+			<Tabs
+				index={currentSection}
+				align="end"
+				variant="soft-rounded"
+				colorScheme="gray"
+			>
 				<TabList sx={{ ...navbarMargins }}>
 					{navbarItems.map((singleSection, index) => {
 						return (
 							<Tab
 								key={`${singleSection}-${index}`}
+								isFocusable
 								onClick={() => scrollToSection(singleSection.sectionId)}
 							>
 								{singleSection.title}

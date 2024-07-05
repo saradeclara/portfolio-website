@@ -1,4 +1,11 @@
-import { Box, Link, ListItem, OrderedList, Text } from "@chakra-ui/react";
+import {
+	Box,
+	Button,
+	Link,
+	ListItem,
+	OrderedList,
+	Text,
+} from "@chakra-ui/react";
 import React from "react";
 import { MdEmail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
@@ -20,35 +27,50 @@ const Contact = () => {
 			</Box>
 			<OrderedList styleType="none" marginBottom="10px">
 				<ListItem>
-					<Box sx={{ ...centeredFlex }}>
-						<MdEmail />
-						<Text padding="0px 5px 0px 10px" display="inline" fontWeight="bold">
-							Email:
-						</Text>{" "}
+					<Box sx={{ ...centeredFlex, padding: "10px 0px" }}>
 						<Link href="mailto:saradeclara@gmail.com">
-							saradeclara@gmail.com
+							<Button colorScheme="teal">
+								<MdEmail />
+								<Text
+									padding="0px 5px 0px 10px"
+									display="inline"
+									fontWeight="bold"
+								>
+									Email
+								</Text>
+							</Button>
 						</Link>
 					</Box>
 				</ListItem>
 				<ListItem>
-					<Box sx={{ ...centeredFlex }}>
-						<FaLinkedin />
-						<Text padding="0px 5px 0px 10px" display="inline" fontWeight="bold">
-							LinkedIn:
-						</Text>{" "}
+					<Box sx={{ ...centeredFlex, padding: "10px 0px" }}>
 						<Link href="https://www.linkedin.com/in/saradeclara/">
-							https://www.linkedin.com/in/saradeclara/
+							<Button colorScheme="blue">
+								<FaLinkedin />
+								<Text
+									padding="0px 5px 0px 10px"
+									display="inline"
+									fontWeight="bold"
+								>
+									LinkedIn
+								</Text>
+							</Button>
 						</Link>
 					</Box>
 				</ListItem>
 				<ListItem>
-					<Box sx={{ ...centeredFlex }}>
-						<FaGithub />
-						<Text padding="0px 5px 0px 10px" display="inline" fontWeight="bold">
-							Github:
-						</Text>{" "}
+					<Box sx={{ ...centeredFlex, padding: "10px 0px" }}>
 						<Link href="https://github.com/saradeclara">
-							https://github.com/saradeclara
+							<Button _hover={{ background: "darkgray" }} colorScheme="gray">
+								<FaGithub />
+								<Text
+									padding="0px 5px 0px 10px"
+									display="inline"
+									fontWeight="bold"
+								>
+									Github
+								</Text>
+							</Button>
 						</Link>
 					</Box>
 				</ListItem>

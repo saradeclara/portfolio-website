@@ -44,6 +44,7 @@ const SingleProject = ({
 					<Heading size="md">
 						<Link
 							_hover={{ textDecoration: "underline" }}
+							target="_blank"
 							href={singleProject.html_url}
 						>
 							{singleProject.name}
@@ -64,17 +65,24 @@ const SingleProject = ({
 				}}
 			>
 				<Button colorScheme="teal" flex="1" variant="ghost">
-					<Link href={singleProject.html_url}>Repo Link</Link>
+					<Link target="_blank" href={singleProject.html_url}>
+						Repo Link
+					</Link>
 				</Button>
 				{currentAllowedRepoInfo?.demoLink ? (
 					<Button colorScheme="teal" flex="1" variant="ghost">
-						<Link href={currentAllowedRepoInfo.demoLink}>Demo Link</Link>
+						<Link target="_blank" href={currentAllowedRepoInfo.demoLink}>
+							Demo Link
+						</Link>
 					</Button>
 				) : null}
 
 				{currentAllowedRepoInfo?.devDiaryIndex ? (
 					<Button colorScheme="teal" flex="1" variant="ghost">
-						<Link href={`/posts/${currentAllowedRepoInfo.devDiaryIndex}`}>
+						<Link
+							target="_blank"
+							href={`/posts/${currentAllowedRepoInfo.devDiaryIndex}`}
+						>
 							Dev Diary
 						</Link>
 					</Button>
