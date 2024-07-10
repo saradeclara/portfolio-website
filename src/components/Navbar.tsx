@@ -2,37 +2,14 @@
 import { Tabs, TabList, Tab, Link, Box } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import useSmoothScroll from "../app/hooks/useSmoothScroll";
-import { SectionContext } from "../app/page";
-
-const navbarMargins = {
-	marginTop: 5,
-	marginRight: 10,
-};
-
-const navbarItems: { title: string; sectionId: string }[] = [
-	{
-		title: "home",
-		sectionId: "home",
-	},
-	{
-		title: "projects",
-		sectionId: "0",
-	},
-	{
-		title: "dev blog",
-		sectionId: "1",
-	},
-	{
-		title: "contact",
-		sectionId: "2",
-	},
-];
+import { SectionContext } from "../context/SectionContext";
+import { navbarItems } from "../app/data";
+import { navbarMargins } from "../styles/globalClasses";
 
 const Navbar = () => {
 	const scrollToSection = useSmoothScroll();
 	const { currentSection, setCurrentSection } = useContext(SectionContext);
 
-	// console.log({ currentSection });
 	return (
 		<Box
 			sx={{

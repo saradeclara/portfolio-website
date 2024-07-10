@@ -2,9 +2,9 @@
 import { Heading, Box } from "@chakra-ui/react";
 import React, { ReactNode, useContext, useEffect, useState } from "react";
 import capitaliseEveryChar from "../helpers/capitaliseEveryChar";
-import { centeredFlex } from "../app/globalClasses";
+import { centeredFlex } from "../styles/globalClasses";
 import useScrollPosition from "../app/hooks/useScrollPosition";
-import { SectionContext } from "../app/page";
+import { SectionContext } from "../context/SectionContext";
 
 const scrollRanges: { range: number[]; label: number }[] = [
 	{
@@ -39,8 +39,8 @@ const Section = ({
 	backgroundColor: string;
 }) => {
 	const scrollY = useScrollPosition();
-	const { currentSection, setCurrentSection } = useContext(SectionContext);
-	// console.log({ currentSection });
+	const { setCurrentSection } = useContext(SectionContext);
+
 	useEffect(() => {
 		scrollRanges.forEach(({ range, label }) => {
 			if (scrollY >= range[0] && scrollY <= range[1]) {
@@ -48,6 +48,7 @@ const Section = ({
 			}
 		});
 	}, [scrollY, setCurrentSection]);
+
 	return (
 		<Box
 			background={background}

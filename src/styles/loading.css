@@ -1,5 +1,5 @@
 .pulse {
-	background-color: rgb(206, 206, 206);
+	background-color: rgb(89, 89, 89);
 	border-radius: 4px;
 	position: relative;
 	overflow: hidden;
@@ -14,9 +14,9 @@
 	bottom: 0;
 	background: linear-gradient(
 		90deg,
-		transparent 10%,
-		rgba(255, 255, 255, 0.2) 50%,
-		transparent 90%
+		transparent,
+		rgb(119, 119, 119),
+		transparent
 	);
 	animation: loading 1.5s ease-in-out infinite;
 }
