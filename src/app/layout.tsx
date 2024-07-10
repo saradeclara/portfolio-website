@@ -1,10 +1,7 @@
-// "use client";
-import Navbar from "@/components/Navbar";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import type { Metadata } from "next";
-import { Inter, DM_Serif_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import "../styles/globals.css";
-import { createContext, Dispatch, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
