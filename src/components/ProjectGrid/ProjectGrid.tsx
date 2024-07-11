@@ -30,7 +30,13 @@ const ProjectGrid = () => {
 		: null;
 
 	return (
-		<Box sx={{ ...centeredFlex }}>
+		<Box
+			sx={{
+				...centeredFlex,
+				alignItems: { base: "unset", md: "stretch" },
+				flexDirection: { base: "column", md: "unset" },
+			}}
+		>
 			{allowedProjects
 				? allowedProjects.map((singleProject, index) => {
 						return (

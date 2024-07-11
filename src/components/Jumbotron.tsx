@@ -1,6 +1,5 @@
-import { Text, Box } from "@chakra-ui/react";
+import { Text, Box, Image } from "@chakra-ui/react";
 import React from "react";
-import { DM_Serif_Display } from "next/font/google";
 import "../styles/globals.css";
 import useSmoothScroll from "../app/hooks/useSmoothScroll";
 
@@ -24,18 +23,33 @@ const Jumbotron = () => {
 				id="home"
 				sx={{
 					width: "100vw",
-					height: "650px",
+					height: { base: "auto", xl: "650px" },
 					background: "rgba(0,0,0,.85)",
 				}}
 			>
-				<Box sx={{ marginTop: "170px", padding: "0px 200px" }}>
-					<Box sx={{ width: "600px" }}>
-						<div className="main-heading dm-serif-display-regular text-shadow">
-							<Box fontSize="70px" color="rgba(255,255,255,.7)">
-								{"Hello, I'm Sara."}
+				<Box
+					sx={{
+						width: "100%",
+						marginTop: "170px",
+						padding: { md: "0px 200px", base: "40px" },
+						display: "flex",
+						flexDirection: { base: "column", md: "unset" },
+						textAlign: { base: "center", md: "revert" },
+					}}
+				>
+					<Box sx={{ width: { md: "600px" } }}>
+						<div className="main-heading page-heading text-shadow">
+							<Box
+								fontSize={{ md: "70px", base: "50px" }}
+								color="rgba(255,255,255,.7)"
+							>
+								{"Hello, I'm Sara!"}
 							</Box>
 						</div>
-						<Box fontSize="19px" color="rgba(255,255,255,.4)">
+						<Box
+							fontSize={{ base: "17px", xl: "19px" }}
+							color="rgba(255,255,255,.4)"
+						>
 							<Box>
 								I am a passionate{" "}
 								<span className="span-display-text">Software Developer</span>,
@@ -44,12 +58,18 @@ const Jumbotron = () => {
 								and <span className="span-display-text">Next.js</span>.
 							</Box>
 
-							<Box sx={{ margin: "20px 0px" }}>
+							<Box
+								fontSize={{ base: "17px", xl: "19px" }}
+								sx={{ margin: "20px 0px" }}
+							>
 								Driven by a passion for problem-solving and creating seamless
 								user experiences, my work revolves around designing and building
 								interactive user interfaces.
 							</Box>
-							<Box>
+							<Box
+								fontSize={{ base: "17px", xl: "19px" }}
+								sx={{ marginBottom: { base: "30px", xl: "0px" } }}
+							>
 								Feel free to explore{" "}
 								<Text
 									sx={{
@@ -77,6 +97,15 @@ const Jumbotron = () => {
 								}
 							</Box>
 						</Box>
+					</Box>
+					<Box sx={{ margin: "0 auto", borderRadius: "100px" }}>
+						<Image
+							sx={{ marginBottom: { base: "30px", xl: "0px" } }}
+							width={{ base: "60%", md: "100%" }}
+							margin={{ base: "0 auto", md: "0px" }}
+							borderRadius="100%"
+							src="/images/me.png"
+						/>
 					</Box>
 				</Box>
 			</Box>

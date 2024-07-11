@@ -17,8 +17,8 @@ const Contact = () => {
 		<Box
 			margin="0 auto"
 			color="rgba(255,255,255,.7)"
-			width="700px"
-			height="500px"
+			width={{ base: "auto", xl: "700px" }}
+			height={{ base: "auto", xl: "350px" }}
 			textAlign="center"
 		>
 			<Box sx={{ marginBottom: "10px" }}>
@@ -83,9 +83,7 @@ const Contact = () => {
 				<br /> I am based in Manchester, UK (GMT), <br />
 				but I am open to remote opportunities as well.
 			</Box>
-			<Box sx={{ marginBottom: "10px" }}>
-				Looking forward to hearing from you!
-			</Box>
+			<Box>Looking forward to hearing from you!</Box>
 		</Box>
 	);
 };

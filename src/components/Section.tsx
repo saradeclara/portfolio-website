@@ -1,10 +1,10 @@
 "use client";
 import { Heading, Box } from "@chakra-ui/react";
 import React, { ReactNode, useContext, useEffect, useState } from "react";
-import capitaliseEveryChar from "../helpers/capitaliseEveryChar";
 import { centeredFlex } from "../styles/globalClasses";
 import useScrollPosition from "../app/hooks/useScrollPosition";
 import { SectionContext } from "../context/SectionContext";
+import "../styles/globals.css";
 
 const scrollRanges: { range: number[]; label: number }[] = [
 	{
@@ -16,11 +16,11 @@ const scrollRanges: { range: number[]; label: number }[] = [
 		label: 1,
 	},
 	{
-		range: [1442, 1859],
+		range: [1442, 1809],
 		label: 2,
 	},
 	{
-		range: [1860, 2000],
+		range: [1810, 2000],
 		label: 3,
 	},
 ];
@@ -67,7 +67,7 @@ const Section = ({
 					}}
 					as="h2"
 				>
-					{capitaliseEveryChar(title)}
+					<div className="page-heading">{title}</div>
 				</Heading>
 				<Box>{body}</Box>
 			</Box>
