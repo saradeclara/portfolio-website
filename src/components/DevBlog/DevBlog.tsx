@@ -1,16 +1,10 @@
-import { supabase } from "@/lib/supabaseClient";
-import {
-	Box,
-	Button,
-	Link,
-	ListItem,
-	OrderedList,
-	Text,
-} from "@chakra-ui/react";
+import { Box, OrderedList } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { formatDate } from "date-fns/format";
 import { BlogPost } from "@/src/types/DevBlog";
-import ReactMarkdown from "react-markdown";
+import SinglePost from "./SinglePost";
+import { blogPostBg, textColor } from "@/src/styles/colors";
+import "../../styles/loading.css";
+import { borderRadius, loadingPostsStyle } from "@/src/styles/globalClasses";
 
 const DevBlog = () => {
 	const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -34,7 +28,12 @@ const DevBlog = () => {
 		fetchPosts();
 	}, []);
 
-	if (loadingPosts) return <Box>Loading Posts...</Box>;
+	if (loadingPosts)
+		return (
+			<div className="pulse loading-posts">
+				<Box sx={{ ...loadingPostsStyle }}>Loading Posts...</Box>
+			</div>
+		);
 
 	return (
 		<OrderedList
@@ -45,59 +44,7 @@ const DevBlog = () => {
 			}}
 		>
 			{posts.map((post, index) => {
-				return (
-					<ListItem
-						width={{ base: "auto", md: "60%" }}
-						margin={{ base: "0px 0px 28px 0px", md: "0 auto 20px auto" }}
-						listStyleType="none"
-						sx={{
-							background: "rgba(56,56,56,.8)",
-							padding: "15px",
-							borderRadius: "15px",
-						}}
-						key={index.toString()}
-					>
-						<Text sx={{ fontWeight: "bold" }}>
-							<Link href={`/posts/${post.id}`}>{post.title}</Link>
-							<Text
-								sx={{
-									display: "inline",
-									fontWeight: "normal",
-								}}
-							>
-								<Text sx={{ fontStyle: "italic" }} fontSize="small">
-									published on{" "}
-									{formatDate(new Date(post.created_at), "do MMMM yyyy")}
-								</Text>
-
-								<Text
-									height="120px"
-									overflow="hidden"
-									fontSize="15px"
-									padding="10px 0px"
-									noOfLines={5}
-								>
-									<ReactMarkdown>{post.body}</ReactMarkdown>
-								</Text>
-							</Text>
-						</Text>
-						<Box
-							sx={{
-								display: "flex",
-								marginTop: "20px",
-								gap: "5px",
-							}}
-						>
-							{post.tags.map((singleTag) => {
-								return (
-									<Button background={singleTag.color} color="white" size="xs">
-										{singleTag.name}
-									</Button>
-								);
-							})}
-						</Box>
-					</ListItem>
-				);
+				return <SinglePost key={index.toString()} post={post} index={index} />;
 			})}
 		</OrderedList>
 	);

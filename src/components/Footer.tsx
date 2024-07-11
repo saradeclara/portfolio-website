@@ -2,13 +2,14 @@ import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 import { centeredFlex } from "../styles/globalClasses";
 import { FaRegCopyright } from "react-icons/fa";
+import { textColor } from "../styles/colors";
 const Footer = () => {
 	return (
 		<Box
 			sx={{
 				height: "100px",
 				background: "black",
-				color: "rgba(255,255,255,.7)",
+				color: textColor,
 				...centeredFlex,
 			}}
 		>

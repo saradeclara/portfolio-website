@@ -2,6 +2,7 @@ import { Text, Box, Image } from "@chakra-ui/react";
 import React from "react";
 import "../styles/globals.css";
 import useSmoothScroll from "../app/hooks/useSmoothScroll";
+import { textColor } from "../styles/colors";
 
 const Jumbotron = () => {
 	const scrollToSection = useSmoothScroll();
@@ -39,10 +40,7 @@ const Jumbotron = () => {
 				>
 					<Box sx={{ width: { md: "600px" } }}>
 						<div className="main-heading page-heading text-shadow">
-							<Box
-								fontSize={{ md: "70px", base: "50px" }}
-								color="rgba(255,255,255,.7)"
-							>
+							<Box fontSize={{ md: "70px", base: "50px" }} color={textColor}>
 								{"Hello, I'm Sara!"}
 							</Box>
 						</div>

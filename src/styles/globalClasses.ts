@@ -1,3 +1,5 @@
+import { blogPostBg, textColor } from "./colors";
+
 const centeredFlex = {
 	display: "flex",
 	justifyContent: "center",
@@ -9,4 +11,15 @@ const navbarMargins = {
 	marginRight: 10,
 };
 
-export { centeredFlex, navbarMargins };
+const borderRadius = "15px";
+
+const loadingPostsStyle = {
+	margin: "0 auto",
+	padding: "20px",
+	background: blogPostBg,
+	textAlign: "center",
+	borderRadius: borderRadius,
+	color: textColor,
+};
+
+export { centeredFlex, navbarMargins, borderRadius, loadingPostsStyle };

@@ -1,4 +1,4 @@
-import { singleCardBg } from "@/src/styles/colors";
+import { singleCardBg, textColor } from "@/src/styles/colors";
 import { AllowedRepo, GithubProject } from "@/types/ProjectGrid";
 import {
 	Card,
@@ -28,7 +28,7 @@ const SingleProject = ({
 
 	return (
 		<Card
-			color="rgba(255,255,255,.7)"
+			color={textColor}
 			key={singleProject.node_id}
 			marginRight={{ base: "0px", sm: "15px" }}
 			background={singleCardBg}

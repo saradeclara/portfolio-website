@@ -13,4 +13,9 @@ type Tag = {
 	color: string;
 };
 
-export type { BlogPost, Tag };
+type SinglePostProps = {
+	post: BlogPost;
+	index: number;
+};
+
+export type { BlogPost, Tag, SinglePostProps };

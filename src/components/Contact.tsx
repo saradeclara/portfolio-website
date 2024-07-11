@@ -11,14 +11,15 @@ import { MdEmail } from "react-icons/md";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { centeredFlex } from "../styles/globalClasses";
+import { textColor } from "../styles/colors";
 
 const Contact = () => {
 	return (
 		<Box
 			margin="0 auto"
-			color="rgba(255,255,255,.7)"
+			color={textColor}
 			width={{ base: "auto", xl: "700px" }}
-			height={{ base: "auto", xl: "350px" }}
+			height={{ base: "auto", xl: "550px" }}
 			textAlign="center"
 		>
 			<Box sx={{ marginBottom: "10px" }}>
