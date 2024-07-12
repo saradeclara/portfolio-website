@@ -6,6 +6,7 @@ import { formatDate } from "date-fns/format";
 import Link from "next/link";
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import BlogTags from "./BlogTags";
 
 const SinglePost = ({ post, index }: SinglePostProps) => {
 	return (
@@ -47,18 +48,10 @@ const SinglePost = ({ post, index }: SinglePostProps) => {
 			</Text>
 			<Box
 				sx={{
-					display: "flex",
 					marginTop: "20px",
-					gap: "5px",
 				}}
 			>
-				{post.tags.map((singleTag) => {
-					return (
-						<Button background={singleTag.color} color="white" size="xs">
-							{singleTag.name}
-						</Button>
-					);
-				})}
+				<BlogTags tags={post.tags} />
 			</Box>
 		</ListItem>
 	);

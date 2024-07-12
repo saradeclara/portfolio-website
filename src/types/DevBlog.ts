@@ -6,6 +6,14 @@ type BlogPost = {
 	tags: Tag[];
 };
 
+type OriginalBlogPost = {
+	id: number;
+	created_at: string;
+	title: string;
+	body: string;
+	postTags: number[];
+};
+
 type Tag = {
 	id: number;
 	created_at: string;
@@ -18,4 +26,4 @@ type SinglePostProps = {
 	index: number;
 };
 
-export type { BlogPost, Tag, SinglePostProps };
+export type { BlogPost, OriginalBlogPost, Tag, SinglePostProps };

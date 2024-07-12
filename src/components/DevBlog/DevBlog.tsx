@@ -2,14 +2,13 @@ import { Box, OrderedList } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { BlogPost } from "@/src/types/DevBlog";
 import SinglePost from "./SinglePost";
-import { blogPostBg, textColor } from "@/src/styles/colors";
 import "../../styles/loading.css";
-import { borderRadius, loadingPostsStyle } from "@/src/styles/globalClasses";
+import { loadingPostsStyle } from "@/src/styles/globalClasses";
 
 const DevBlog = () => {
 	const [posts, setPosts] = useState<BlogPost[]>([]);
 	const [loadingPosts, updateLoadingPosts] = useState<boolean>(false);
-
+	console.log({ posts });
 	useEffect(() => {
 		const fetchPosts = async () => {
 			updateLoadingPosts(true);

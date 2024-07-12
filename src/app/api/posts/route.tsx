@@ -1,6 +1,5 @@
-// pages/api/hello.ts
 import { supabase } from "@/lib/supabaseClient";
-import { BlogPost } from "@/src/types/DevBlog";
+import generateBlogPostWithTags from "@/src/helpers/generateBlogTags";
 import { NextResponse } from "next/server";
 
 /**
@@ -15,21 +14,10 @@ export async function GET() {
 	let { data: posts } = await supabase.from("posts").select("*");
 	let { data: tags } = await supabase.from("tags").select("*");
 
-	let postTags: BlogPost[] = [];
-	if (posts) {
-		let copyOfPosts = [...posts];
-		const updatedPosts = copyOfPosts.map((singlePost) => {
-			postTags = [];
-			singlePost.postTags.forEach((tagId: number) => {
-				const currentTag = tags?.find((el) => el.id === tagId);
-				postTags.push(currentTag);
-			});
-			delete singlePost.postTags;
-			return {
-				...singlePost,
-				tags: postTags,
-			};
-		});
+	// let postTags: Tag[] = [];
+	if (posts && tags) {
+		const updatedPosts = generateBlogPostWithTags(posts, tags);
+
 		return NextResponse.json(updatedPosts);
 	}
 }
