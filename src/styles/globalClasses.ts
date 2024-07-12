@@ -13,13 +13,4 @@ const navbarMargins = {
 
 const borderRadius = "15px";
 
-const loadingPostsStyle = {
-	margin: "0 auto",
-	padding: "20px",
-	background: blogPostBg,
-	textAlign: "center",
-	borderRadius: borderRadius,
-	color: textColor,
-};
-
-export { centeredFlex, navbarMargins, borderRadius, loadingPostsStyle };
+export { centeredFlex, navbarMargins, borderRadius };

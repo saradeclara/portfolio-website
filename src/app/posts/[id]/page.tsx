@@ -1,7 +1,7 @@
 "use client";
 import { supabase } from "@/lib/supabaseClient";
 import { BlogPost } from "@/src/types/DevBlog";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import "../../../../src/styles/markdown.css";
@@ -13,6 +13,8 @@ import useSmoothScroll from "../../hooks/useSmoothScroll";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { formatDate } from "date-fns/format";
+import LoadingBlogPost from "@/src/components/BlogPost/LoadingBlogPost";
 
 interface CodeBlockProps {
 	className?: string;
@@ -28,12 +30,12 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ className, children }) => {
 	);
 };
 
-interface MarkdownComponentProps {
-	node: any;
-	inline: any;
-	className?: string;
-	children: React.ReactNode;
-}
+// interface MarkdownComponentProps {
+// 	node: any;
+// 	inline: any;
+// 	className?: string;
+// 	children: React.ReactNode;
+// }
 
 type Props = {
 	params: {
@@ -42,19 +44,19 @@ type Props = {
 };
 
 export default function PostPage({ params }: Props) {
-	const scrollY = useScrollPosition();
-	const scrollToSection = useSmoothScroll();
-
+	const [loadingPage, setLoadingPage] = useState(true);
 	const { id } = params;
 	const [currentPost, setCurrentPost] = useState<BlogPost | null>(null);
 
 	useEffect(() => {
 		const getCurrentPost = async (id: string) => {
+			setLoadingPage(true);
 			const response = await fetch(`/api/posts/${id}`);
 			const jsonResponse = await response.json();
 
 			if (jsonResponse) {
 				setCurrentPost(jsonResponse);
+				setLoadingPage(false);
 			}
 
 			if (!response.ok) {
@@ -65,11 +67,13 @@ export default function PostPage({ params }: Props) {
 		getCurrentPost(id);
 	}, []);
 
+	if (loadingPage) return <LoadingBlogPost />;
+
 	if (currentPost && currentPost.tags)
 		return (
 			<>
 				<Box
-					background="url(/images/background4.jpg)"
+					background="rgba(35,35,35)"
 					sx={{
 						backgroundSize: "100%",
 						width: "100%",
@@ -90,7 +94,14 @@ export default function PostPage({ params }: Props) {
 					}}
 				></Box>
 				<div className="main-wrapper">
-					<Heading>{currentPost.title}</Heading>
+					<Heading sx={{ paddingBottom: 0, fontSize: "35px" }}>
+						{currentPost.title}
+					</Heading>
+					<Box sx={{ padding: "10px 0px" }}>
+						Published by{" "}
+						<Text sx={{ fontWeight: "bold", display: "inline" }}>Sara</Text> on{" "}
+						{formatDate(currentPost.created_at, "do MMMM yyyy")}
+					</Box>
 					<BlogTags tags={currentPost.tags} />
 					<ReactMarkdown
 						rehypePlugins={[rehypeSlug]}

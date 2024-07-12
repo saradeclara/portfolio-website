@@ -20,20 +20,20 @@ const sections: {
 	{
 		title: "projects",
 		body: <ProjectGrid />,
-		background: "url('/images/background1.jpg')",
-		backgroundColor: "black",
+		background: undefined,
+		backgroundColor: "rgba(13,13,13,1)",
 	},
 	{
 		title: "dev blog",
 		body: <DevBlog />,
 		background: undefined,
-		backgroundColor: "rgba(0,0,0,.85)",
+		backgroundColor: "rgba(25,25,25,.9)",
 	},
 	{
 		title: "contact",
 		body: <Contact />,
-		background: "url('/images/background1.jpg')",
-		backgroundColor: "black",
+		background: undefined,
+		backgroundColor: "rgba(13,13,13,1)",
 	},
 ];
 

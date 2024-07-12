@@ -8,7 +8,12 @@ const BlogTags = ({ tags }: { tags: Tag[] }) => {
 		<Box display="flex" gap="5px">
 			{tags.map((singleTag) => {
 				return (
-					<Button background={singleTag.color} color="white" size="xs">
+					<Button
+						_hover={{ bg: singleTag.color }}
+						background={singleTag.color}
+						color="white"
+						size="xs"
+					>
 						{singleTag.name}
 					</Button>
 				);

@@ -1,14 +1,16 @@
-import { Box, OrderedList } from "@chakra-ui/react";
+import { Box, OrderedList, Skeleton, Stack } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { BlogPost } from "@/src/types/DevBlog";
 import SinglePost from "./SinglePost";
 import "../../styles/loading.css";
-import { loadingPostsStyle } from "@/src/styles/globalClasses";
+import { blogPostBg } from "@/src/styles/colors";
+import LoadingBlogPost from "../BlogPost/LoadingBlogPost";
+import LoadingSinglePost from "./LoadingSinglePost";
 
 const DevBlog = () => {
 	const [posts, setPosts] = useState<BlogPost[]>([]);
-	const [loadingPosts, updateLoadingPosts] = useState<boolean>(false);
-	console.log({ posts });
+	const [loadingPosts, updateLoadingPosts] = useState<boolean>(true);
+
 	useEffect(() => {
 		const fetchPosts = async () => {
 			updateLoadingPosts(true);
@@ -28,11 +30,9 @@ const DevBlog = () => {
 	}, []);
 
 	if (loadingPosts)
-		return (
-			<div className="pulse loading-posts">
-				<Box sx={{ ...loadingPostsStyle }}>Loading Posts...</Box>
-			</div>
-		);
+		return [0, 1].map((_el, index) => {
+			return <LoadingSinglePost key={index.toString()} />;
+		});
 
 	return (
 		<OrderedList

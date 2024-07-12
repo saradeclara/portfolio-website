@@ -28,13 +28,14 @@ const SingleProject = ({
 
 	return (
 		<Card
+			boxShadow="0 0 10px black"
 			color={textColor}
 			key={singleProject.node_id}
 			marginRight={{ base: "0px", sm: "15px" }}
 			background={singleCardBg}
 			fontSize={{ base: "15px" }}
 			opacity="0.77"
-			height={{ base: "auto", xl: "650px" }}
+			height={{ base: "auto", xl: "600px" }}
 			marginBottom={{ base: "20px", md: "0px" }}
 			maxW="sm"
 		>

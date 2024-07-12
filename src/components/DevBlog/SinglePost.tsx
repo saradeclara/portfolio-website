@@ -18,6 +18,7 @@ const SinglePost = ({ post, index }: SinglePostProps) => {
 				listStyleType: "none",
 				background: blogPostBg,
 				borderRadius: borderRadius,
+				boxShadow: "0 0 20px rgba(0,0,0,.5)",
 			}}
 			key={index.toString()}
 		>
@@ -29,28 +30,18 @@ const SinglePost = ({ post, index }: SinglePostProps) => {
 						fontWeight: "normal",
 					}}
 				>
-					<Text sx={{ fontStyle: "italic", fontSize: "small" }}>
-						published on {formatDate(new Date(post.created_at), "do MMMM yyyy")}
-					</Text>
-
 					<Text
 						sx={{
-							height: "120px",
-							overflow: "hidden",
-							fontSize: "15px",
-							padding: "10px 0px",
-							noOfLines: 5,
+							fontStyle: "italic",
+							fontSize: "small",
+							marginBottom: "20px",
 						}}
 					>
-						<ReactMarkdown>{post.body}</ReactMarkdown>
+						published on {formatDate(new Date(post.created_at), "do MMMM yyyy")}
 					</Text>
 				</Text>
 			</Text>
-			<Box
-				sx={{
-					marginTop: "20px",
-				}}
-			>
+			<Box>
 				<BlogTags tags={post.tags} />
 			</Box>
 		</ListItem>
