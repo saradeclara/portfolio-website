@@ -18,6 +18,7 @@ const Jumbotron = () => {
 					width: "100%",
 					height: "100%",
 					backgroundSize: "cover",
+					alt: "main-background",
 				}}
 				background="url('/images/background4.jpg')"
 			></Box>
@@ -102,6 +103,7 @@ const Jumbotron = () => {
 					</Box>
 					<Box sx={{ ...centeredFlex, flex: 1 }}>
 						<Image
+							alt="Sara De Clara (Software Developer)"
 							boxShadow="0 0 10px black"
 							borderRadius="50px"
 							border="1px solid black"

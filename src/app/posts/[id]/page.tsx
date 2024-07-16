@@ -65,6 +65,7 @@ export default function PostPage({ params }: Props) {
 		};
 
 		getCurrentPost(id);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	if (loadingPage) return <LoadingBlogPost />;

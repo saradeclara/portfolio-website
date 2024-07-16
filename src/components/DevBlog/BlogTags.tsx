@@ -9,6 +9,7 @@ const BlogTags = ({ tags }: { tags: Tag[] }) => {
 			{tags.map((singleTag) => {
 				return (
 					<Button
+						key={`${singleTag.toString()}-key`}
 						_hover={{ bg: singleTag.color }}
 						background={singleTag.color}
 						color="white"
