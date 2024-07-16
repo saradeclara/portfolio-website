@@ -1,8 +1,7 @@
 import { supabase } from "@/lib/supabaseClient";
 import generateBlogPostWithTags from "@/src/helpers/generateBlogTags";
 import getQueryId from "@/src/helpers/getQueryId";
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 /**
  * The function GET retrieves a blog post and its associated tags from a database and generates a blog
@@ -13,7 +12,7 @@ import { NextResponse } from "next/server";
  * provided code snippet, the function
  * @returns a JSON response of an updated blog post with tags.
  */
-export async function GET(request: NextApiRequest) {
+export async function GET(request: NextRequest) {
 	if (request.url) {
 		const id = getQueryId(request.url);
 		let { data: post } = await supabase.from("posts").select("*").eq("id", id);
