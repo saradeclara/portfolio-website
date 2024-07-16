@@ -107,7 +107,6 @@ const Jumbotron = () => {
 							alt="Sara De Clara (Software Developer)"
 							width="250px"
 							borderRadius="100%"
-							boxShadow="0 0 10px black"
 						/>
 					</Box>
 				</Box>
