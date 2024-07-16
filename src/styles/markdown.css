@@ -28,10 +28,13 @@ ol {
 	padding-bottom: 10px;
 }
 
-pre {
+.main-wrapper > pre {
 	border-radius: 15px;
 	color: white;
 	margin: 30px 0px;
+	padding: 10px 20px;
+	background: rgb(30, 30, 30);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 strong > code {
@@ -42,7 +45,7 @@ strong > code {
 }
 
 img {
-	width: 80%;
+	width: 70%;
 	margin: 0 auto;
 	padding: 30px 0px;
 }
@@ -80,4 +83,8 @@ li {
 
 #loading-window {
 	height: 100vh;
+}
+
+.main-wrapper > p:nth-child(10) > img:nth-child(1) {
+	padding: 0;
 }

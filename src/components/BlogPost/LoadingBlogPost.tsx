@@ -5,7 +5,7 @@ const LoadingBlogPost = () => {
 	return (
 		<>
 			<Box
-				background="url(/images/background4.jpg)"
+				background="url(/images/background5.jpg)"
 				sx={{
 					backgroundSize: "100%",
 					width: "100%",

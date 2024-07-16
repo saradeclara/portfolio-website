@@ -14,7 +14,7 @@ const SinglePost = ({ post, index }: SinglePostProps) => {
 			sx={{
 				width: { base: "auto", md: "60%" },
 				margin: { base: "0px 0px 28px 0px", md: "0 auto 20px auto" },
-				padding: "15px",
+				padding: "25px",
 				listStyleType: "none",
 				background: blogPostBg,
 				borderRadius: borderRadius,

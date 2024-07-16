@@ -12,15 +12,15 @@ const scrollRanges: { range: number[]; label: number }[] = [
 		label: 0,
 	},
 	{
-		range: [570, 1441],
+		range: [570, 1374],
 		label: 1,
 	},
 	{
-		range: [1442, 1809],
+		range: [1375, 1733],
 		label: 2,
 	},
 	{
-		range: [1810, 2000],
+		range: [1734, 2000],
 		label: 3,
 	},
 ];
@@ -40,7 +40,7 @@ const Section = ({
 }) => {
 	const scrollY = useScrollPosition();
 	const { setCurrentSection } = useContext(SectionContext);
-
+	console.log({ scrollY });
 	useEffect(() => {
 		scrollRanges.forEach(({ range, label }) => {
 			if (scrollY >= range[0] && scrollY <= range[1]) {
@@ -61,8 +61,8 @@ const Section = ({
 					sx={{
 						...centeredFlex,
 						marginTop: "0px",
-						marginBottom: "50px",
 						color: "white",
+						marginBottom: "30px",
 						fontSize: "60px",
 					}}
 					as="h2"

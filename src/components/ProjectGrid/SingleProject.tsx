@@ -35,7 +35,7 @@ const SingleProject = ({
 			background={singleCardBg}
 			fontSize={{ base: "15px" }}
 			opacity="0.77"
-			height={{ base: "auto", xl: "600px" }}
+			height={{ base: "auto" }}
 			marginBottom={{ base: "20px", md: "0px" }}
 			maxW="sm"
 		>

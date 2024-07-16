@@ -17,10 +17,10 @@ const Jumbotron = () => {
 					left: 0,
 					width: "100%",
 					height: "100%",
-					backgroundSize: "cover",
+					backgroundSize: "contain",
 					alt: "main-background",
 				}}
-				background="url('/images/background4.jpg')"
+				background="url('/images/background5.jpg')"
 			></Box>
 			<Box
 				id="home"
@@ -101,16 +101,13 @@ const Jumbotron = () => {
 							</Box>
 						</Box>
 					</Box>
-					<Box sx={{ ...centeredFlex, flex: 1 }}>
+					<Box sx={{ flex: 1, ...centeredFlex }}>
 						<Image
+							src="/images/me-cartoon.png"
 							alt="Sara De Clara (Software Developer)"
+							width="250px"
+							borderRadius="100%"
 							boxShadow="0 0 10px black"
-							borderRadius="50px"
-							border="1px solid black"
-							sx={{ marginBottom: { base: "30px", xl: "0px" } }}
-							width={{ base: "45%" }}
-							margin={{ base: "0 auto", md: "0px" }}
-							src="/images/me.png"
 						/>
 					</Box>
 				</Box>
