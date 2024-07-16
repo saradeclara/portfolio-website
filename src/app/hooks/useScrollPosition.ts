@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 
+/**
+ * The `useScrollPosition` function tracks and returns the vertical scroll position of
+ * the window.
+ * @returns The `useScrollPosition` custom hook returns the current vertical scroll position of the
+ * window (`scrollY`).
+ */
 const useScrollPosition = () => {
 	const [scrollY, setScrollY] = useState(0);
 

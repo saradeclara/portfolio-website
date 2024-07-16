@@ -40,7 +40,7 @@ const Section = ({
 }) => {
 	const scrollY = useScrollPosition();
 	const { setCurrentSection } = useContext(SectionContext);
-	console.log({ scrollY });
+
 	useEffect(() => {
 		scrollRanges.forEach(({ range, label }) => {
 			if (scrollY >= range[0] && scrollY <= range[1]) {
