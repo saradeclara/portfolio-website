@@ -54,7 +54,7 @@ const Section = ({
 			background={background}
 			backgroundColor={backgroundColor}
 			width="100vw"
-			padding="50px 100px"
+			padding={{ base: "25px 50px", md: "50px 100px" }}
 		>
 			<Box id={index.toString()} key={index}>
 				<Heading
