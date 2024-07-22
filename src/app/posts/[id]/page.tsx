@@ -94,7 +94,15 @@ export default function PostPage({ params }: Props) {
 						zIndex: "-1",
 					}}
 				></Box>
-				<div className="main-wrapper">
+				<Box
+					className="main-wrapper"
+					padding={{ base: "40px", xl: "100px 250px 200px 250px" }}
+					margin={{ base: "20px", xl: "90px" }}
+					borderRadius="15px"
+					background="rgb(29, 29, 29)"
+					color="rgba(255, 255, 255, 0.7)"
+					boxShadow="0 0 20px rgba(0, 0, 0, 0.313)"
+				>
 					<Heading sx={{ paddingBottom: 0, fontSize: "35px" }}>
 						{currentPost.title}
 					</Heading>
@@ -121,7 +129,7 @@ export default function PostPage({ params }: Props) {
 					>
 						{currentPost.body}
 					</ReactMarkdown>
-				</div>
+				</Box>
 			</>
 		);
 }
